@@ -15,11 +15,11 @@
 		<div class="bg-white rounded-lg shadow-lg overflow-hidden" style="width: 460px;">
 			<div class="p-8 text-left">
 				<h2 class="mb-6 text-90 font-normal text-xl">{{ this.panel.fields[0].title ? this.panel.fields[0].title : 'Confirmation'}}</h2>
-				<p class="text-80 leading-normal">{{ this.panel.fields[0].body ? this.panel.fields[0].body : 'Are you Sure ?'}}</p>
+				<p class="text-80 leading-normal">{{ this.panel.fields[0].body ? this.panel.fields[0].body : 'Are you sure ?'}}</p>
 			</div>
 			<div class="border-t border-50 px-6 py-3 ml-auto flex items-center" style="min-height: 70px; flex-direction: row-reverse;">
 				<a @click="showBox=false" class="cursor-pointer btn text-80 font-normal px-3 mr-3 btn-link" style="order: 2;">
-					{{ this.panel.fields[0].cancle_button_text ? this.panel.fields[0].cancle_button_text : 'Cancle' }}
+					{{ this.panel.fields[0].cancel_button_text ? this.panel.fields[0].cancel_button_text : 'Cancel' }}
 				</a>
 				<span>
 					<span @click="proceed" class="nova-button nova-button-post cursor-pointer dim inline-block text-primary font-bold no-underline nova-button-post cursor-pointer dim inline-block text-primary font-bold no-underline"
@@ -65,6 +65,7 @@ export default {
 					model: this.panel.fields[0].model ? this.panel.fields[0].model : "",
 					id: this.panel.fields[0].id ? this.panel.fields[0].id : "",
 					resource: this.panel.fields[0].resource ? this.panel.fields[0].resource : "",
+					media: this.panel.fields[0].media ? this.panel.fields[0].media : "",
 					relations: this.panel.fields[0].relations ? this.panel.fields[0].relations : "",
 					except: this.panel.fields[0].except ? this.panel.fields[0].except : "",
 					override: this.panel.fields[0].override ? this.panel.fields[0].override : ""

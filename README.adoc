@@ -62,7 +62,7 @@ image::https://live.staticflickr.com/65535/49716481277_77624978f8_k.jpg[Demo ima
 
 ## Customization of confirm dialogue box .
 
-*_->Use title,body,confirm_button_text and cancle_button_text meta for customization_*
+*_->Use title,body,confirm_button_text and cancel_button_text meta for customization_*
 
 image::https://live.staticflickr.com/65535/49711939342_756c8d63ac_k.jpg[Demo image 2]
 
@@ -74,7 +74,7 @@ CopyClone::make()
            'title' => 'Custom Title',  // by default 'title' => 'Confirmation'
            'body' => 'Custom Body',   // by default 'body' => 'Are you sure ?'
            'confirm_button_text' => 'Custom Confirm Button' ,   // by default 'confirm_button_text' => 'Copy\Clone'
-           'cancle_button_text' => 'Custom Cancle Button'   // by default 'cancle_button_text'  => 'Cancle'
+           'cancel_button_text' => 'Custom Cancel Button'   // by default 'cancel_button_text'  => 'Cancel'
     ]),
 ----
 

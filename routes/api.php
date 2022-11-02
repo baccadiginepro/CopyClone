@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Log;
 /*
 |--------------------------------------------------------------------------
 | Tool API Routes
@@ -52,7 +52,22 @@ Route::post('/endpoint', function (Request $request) {
             }
         }
     }
+    Log::info($request->media);
+    if (isset($request->media) && is_array($request->media)) {
 
+        foreach ($request->media as $collection) {
+            Log::info($collection);
+            $medias = $model->getMedia($collection);
+            foreach ($medias as $media) {
+                $newModel
+                    ->addMedia($media->getPath())
+                    ->preservingOriginal()
+                    ->toMediaCollection($collection);
+            }
+        }
+
+    }
+    
     // return response and redirect.
     return [
         'status' => 200,
