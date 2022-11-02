@@ -1,7 +1,7 @@
 {
     "name": "baccadiginepro/copy-clone",
     "description": "A Laravel Nova Package for Copy or clone a resource Data.",
-    "version": "2.4.0",
+    "version": "2.4.1",
     "keywords": [
         "laravel",
         "nova",
