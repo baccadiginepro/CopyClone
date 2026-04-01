@@ -40,14 +40,18 @@ Route::post('/endpoint', function (Request $request) {
         $model->load($request->relations);
 
         foreach ($model->getRelations() as $relation => $items) {
-            // works for hasMany
-            foreach ($items as $item) {
-                // clean up our models, remove the id and remove the appends
-                unset($item->id);
-                $item->setAppends([]);
+            $relationInstance = $newModel->{$relation}();
 
-                // create a relation on the new model with the data.
-                $newModel->{$relation}()->create($item->toArray());
+            if ($relationInstance instanceof \Illuminate\Database\Eloquent\Relations\BelongsToMany) {
+                // sync existing records without duplicating them
+                $newModel->{$relation}()->sync($items->pluck('id')->toArray());
+            } else {
+                // works for hasMany: duplicate the records
+                foreach ($items as $item) {
+                    unset($item->id);
+                    $item->setAppends([]);
+                    $newModel->{$relation}()->create($item->toArray());
+                }
             }
         }
     }
